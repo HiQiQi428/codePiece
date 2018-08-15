@@ -125,7 +125,7 @@ public class TestBaseOp {
         try {
             Node keanu = graphDb.getNodeById(41);
             Node theMatrix = graphDb.getNodeById(40);
-            Relationship rel = keanu.createRelationshipTo(theMatrix, RelTypes.ACTED_IN);
+            Relationship rel = keanu.createRelationshipTo(theMatrix, Rels.ACTED_IN);
             rel.setProperty("roles", "Neo");
             System.out.println(rel);
             tx.success();
@@ -140,7 +140,7 @@ public class TestBaseOp {
         // 删除节点和关系
         try {
             Node keanu = graphDb.getNodeById(41);
-            keanu.getSingleRelationship(RelTypes.ACTED_IN, Direction.OUTGOING).delete();
+            keanu.getSingleRelationship(Rels.ACTED_IN, Direction.OUTGOING).delete();
             keanu.delete();
             Node theMatrix = graphDb.getNodeById(40);
             theMatrix.delete();            
